@@ -1,0 +1,42 @@
+# Small badly written ML code for SonarQube testing
+
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.datasets import load_iris
+
+data = load_iris()
+
+x = data.data
+y = data.target
+
+m = DecisionTreeClassifier()
+m.fit(x, y)
+
+# duplicate code
+p1 = m.predict(x)
+p2 = m.predict(x)
+
+# bad practice
+a = 10
+b = 20
+c = 30
+d = 40
+
+# useless condition
+if a < b:
+    print("a")
+
+# dead code
+if False:
+    print("never")
+
+# broad exception
+try:
+    print(p1[0])
+except:
+    pass
+
+# resource not closed
+f = open("abc.txt", "w")
+f.write("test")
+
+print("finished")
