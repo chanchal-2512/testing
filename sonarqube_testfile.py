@@ -1,6 +1,6 @@
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.datasets import load_iris
-
+import os
 data = load_iris()
 
 x = data.data
@@ -14,8 +14,7 @@ p1 = m.predict(x)
 p2 = m.predict(x)
 
 # hardcoded password
-password = "admin123"
-
+password = os.getenv("APP_PASSWORD")
 # bad variable naming
 a = 10
 b = 20
